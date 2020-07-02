@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Next: Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Next: Node",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--node-options=--inspect", "run", "dev"],
+      "port": 9229,
+      "sourceMaps": true,
+      "smartStep": true,
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Attach Chrome against localhost",
+      "urlFilter": "http://localhost:3000/*",
+      "port": 9222,
+      "webRoot": "${workspaceRoot}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Next: Full",
+      "configurations": ["Next: Node", "Next: Chrome"]
+    }
+  ]
+}
